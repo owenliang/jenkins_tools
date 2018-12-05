@@ -1,0 +1,13 @@
+# PHP项目 - 通用dockerfile
+
+# 包含PHP和NGINX环境的基础镜像
+FROM harbor.smzdm.com/smzdm/php-base:v2
+
+# 接下来的构建工作目录，是容器内的
+WORKDIR /root/deploy
+
+# 把build.sh产生的部署包解压到WORKDIR目录
+ADD ["deploy.tar.gz", "./"]
+
+# 容器启动命令
+ENTRYPOINT sh deploy.sh && /etc/init.d/php-fpm start && /etc/init.d/nginx start
