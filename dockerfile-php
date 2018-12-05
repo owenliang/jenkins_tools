@@ -10,4 +10,4 @@ WORKDIR /root/deploy
 ADD ["deploy.tar.gz", "./"]
 
 # 容器启动命令
-ENTRYPOINT sh deploy.sh && /etc/init.d/php-fpm start && /etc/init.d/nginx start
+ENTRYPOINT sh deploy.sh && /etc/init.d/php-fpm start && /etc/init.d/nginx start && while true; do sleep 1; done
