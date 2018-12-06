@@ -2,27 +2,27 @@ pipeline {
     agent any
 
     stages {
-        stage("CHECKOUT REPO") {
+        stage("下载代码") {
             steps {
-                echo "checkout repo"
+                echo "下载代码"
             }
         }
 
-        stage("BUILD PROJECT") {
+        stage("构建应用") {
             steps {
-                echo "build project"
+                echo "构建应用"
             }
         }
 
-        stage("BUILD DOCKER IMAGE") {
+        stage("打包镜像") {
             steps {
-                echo "build docker image"
+                echo "打包镜像"
             }     
         }
 
-        stage("PUSH DOCKER IMAGE") {
+        stage("推送镜像") {
             steps {
-                echo "push docker image"
+                echo "推送镜像"
             }
         }
     }
