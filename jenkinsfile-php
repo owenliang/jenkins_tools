@@ -12,22 +12,20 @@ pipeline {
         stage("构建应用") {
             steps {
                 echo "构建应用"
-                sh "cd $WORKSPACE/app_repo"
-                sh "sh build.sh"
+                sh "cd app_repo && sh build.sh"
+                sh "cp app_repo/deploy.tar.gz ./"
             }
         }
 
         stage("打包镜像") {
             steps {
                 echo "打包镜像"
-                sh "pwd"
             }     
         }
 
         stage("推送镜像") {
             steps {
                 echo "推送镜像"
-                sh "pwd"
             }
         }
     }
