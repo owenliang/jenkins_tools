@@ -21,14 +21,13 @@ pipeline {
             steps {
                 echo "打包镜像"
                 sh "cp dockerfile-php Dockerfile"
-                sh "docker build -t 'harbor.smzdm.com/smzdm/${currentBuild.projectName}:${currentBuild.id}' ."
+                sh "docker build -t 'harbor.smzdm.com/smzdm/${currentBuild.projectName}:${currentBuild.id}-${currentBuild.startTimeInMillis}' ."
             }     
         }
 
         stage("推送镜像") {
             steps {
                 echo "推送镜像"
-                sh "docker push harbor.smzdm.com/smzdm/${currentBuild.projectName}:${currentBuild.id}"
             }
         }
     }
