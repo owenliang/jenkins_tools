@@ -3,19 +3,27 @@ pipeline {
 
     stages {
         stage("CHECKOUT REPO") {
-            echo "checkout repo"
+            steps {
+                echo "checkout repo"
+            }
         }
 
         stage("BUILD PROJECT") {
-            echo "build project"
+            steps {
+                echo "build project"
+            }
         }
 
         stage("BUILD DOCKER IMAGE") {
-            echo "build docker image"
+            steps {
+                echo "build docker image"
+            }     
         }
 
         stage("PUSH DOCKER IMAGE") {
-            echo "push docker image"
+            steps {
+                echo "push docker image"
+            }
         }
     }
 }
