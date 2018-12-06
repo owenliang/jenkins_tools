@@ -20,12 +20,15 @@ pipeline {
         stage("打包镜像") {
             steps {
                 echo "打包镜像"
+                sh "cp dockerfile-php Dockerfile"
+                sh "docker build -t 'harbor.smzdm.com/smzdm/${currentBuild.projectName}:${currentBuild.id}' ."
             }     
         }
 
         stage("推送镜像") {
             steps {
                 echo "推送镜像"
+                sh "docker push harbor.smzdm.com/smzdm/${currentBuild.projectName}:${currentBuild.id}"
             }
         }
     }
