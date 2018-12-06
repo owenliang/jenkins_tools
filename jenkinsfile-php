@@ -5,6 +5,7 @@ pipeline {
         stage("下载代码") {
             steps {
                 echo "下载代码"
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: '${params.APP_REPO}']]])
             }
         }
 
