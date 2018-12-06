@@ -12,18 +12,21 @@ pipeline {
         stage("构建应用") {
             steps {
                 echo "构建应用"
+                sh "pwd && cd $WORKSPACE/app_repo && sh build.sh"
             }
         }
 
         stage("打包镜像") {
             steps {
                 echo "打包镜像"
+                sh "pwd"
             }     
         }
 
         stage("推送镜像") {
             steps {
                 echo "推送镜像"
+                sh "pwd"
             }
         }
     }
