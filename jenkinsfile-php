@@ -33,6 +33,7 @@ pipeline {
             steps {
                 echo "推送镜像"
                 sh "docker push 'harbor.smzdm.com/smzdm/${currentBuild.projectName}:${currentBuild.id}-${currentBuild.startTimeInMillis}' "
+                sh "docker rmi 'harbor.smzdm.com/smzdm/${currentBuild.projectName}:${currentBuild.id}-${currentBuild.startTimeInMillis}' "
             }
         }
     }
